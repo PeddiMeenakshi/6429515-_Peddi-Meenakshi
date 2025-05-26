@@ -5,89 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
     <style>
-    #welcomeBanner {
-        background-color: blue;
-        color: white;
-        padding: 15px;
-        text-align: center;
-    }
-
-    .highlight {
-        color: orange;
-        font-weight: bold;
-    }
-    #bannerContainer {
-        width: 80%; /* Adjust width as needed */
-        max-width: 700px;
-        margin: auto; /* Centers the banner */
-        overflow: hidden;
-        position: relative;
-    }
-
-    .bannerSlider {
-        display: flex;
-        background: #000;
-        transition: transform 0.6s ease-in-out;
-    }
-   .bannerSlider video {
-        width: 100%;
-        height: 400px; /* Ensures uniform size */
-        object-fit: cover; /* Scales content while keeping aspect ratio */
-    }
-
-
-    table {
-    margin: auto; /* Centers the table */
-    border-collapse: collapse; /* Ensures clean layout */
-    text-align: center; /* Aligns text within cells */
-    }
-    img:active {
-        transform: scale(1.5);
-        transition: 0.3s;
-    }
-
-    .event-img {
-    border: 2px solid #333;
-    width: 350px;
-    height:230px ;
-    object-fit: cover;
-    padding: 5px;
-    }
-    form {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin: auto;
-    padding: 15px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    }
-
-    label {
-    font-weight: bold;
-    margin-top: 10px;
-    }
-
-    input, select, textarea {
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    width: 90%;
-    }
-
-    button {
-    background-color: blue;
-    color: white;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-    }
-    footer{
-        background-color: #827c7c;
-        padding: 30px;
+        /*internal css*/
+    body{
+        background-color: #f0f0f0; /* Light gray background */
     }
     </style>
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -104,7 +27,8 @@
 
     <section id="home">
     <div id="welcomeBanner">
-        <h2>Welcome, Community Member!</h2>
+        <h1 style="color: red;">Welcome to the Local Community Event Portal</h1><!--inline css-->
+        <h2>Dear, Community Member!</h2>
         <p>Enjoy exclusive access to upcoming events.</p>
         <p><span style="color: red; font-weight: bold;">Limited Time Offer:</span> Register now for free event passes!</p>
         <p class="highlight">Make sure to register before spots fill up!</p>

@@ -1,0 +1,80 @@
+/* Header & banner styles */
+#welcomeBanner { 
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    text-align: center;
+ }
+.highlight {
+     color: orange;
+      font-weight: bold; 
+}
+
+/* Banner container styles */
+#bannerContainer { 
+    width: 80%; 
+    max-width: 700px; 
+    margin: auto; 
+    overflow: hidden; 
+    position: relative; 
+}
+.bannerSlider { 
+    display: flex; 
+    background: #000; 
+    transition: transform 0.6s ease-in-out;
+ }
+.bannerSlider video { 
+    width: 100%; 
+    height: 400px; 
+    object-fit: cover; 
+}
+
+/* Table & image styles */
+table { 
+    margin: auto; 
+    border-collapse: collapse; 
+    text-align: center; 
+}
+img:active { 
+    transform: scale(1.5); 
+    transition: 0.3s; 
+}
+.event-img { 
+    border: 2px solid #333; 
+    width: 350px; 
+    height: 230px; 
+    object-fit: cover; 
+    padding: 5px; 
+}
+
+/* Form & input styles */
+form { 
+    display: flex; 
+    flex-direction: column; 
+    width: 400px; 
+    margin: auto; 
+    padding: 15px; 
+    border: 1px solid #ddd; 
+    background-color: #f9f9f9; }
+label { 
+    font-weight: bold; 
+    margin-top: 10px; 
+}
+input, select, textarea { 
+    padding: 8px; 
+    margin-top: 5px; 
+    border: 1px solid #ccc; 
+    width: 90%; }
+button { 
+    background-color: blue; 
+    color: white; 
+    padding: 10px; 
+    margin-top: 10px; 
+    cursor: pointer; 
+}
+
+/* Footer styles */
+footer { 
+    background-color: #827c7c; 
+    padding: 30px; 
+}
