@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
     <style>
     #welcomeBanner {
@@ -170,7 +171,7 @@
             <input type="date" id="date" name="date" required>
 
             <label for="event">Select Event:</label>
-            <select id="event" name="event" onchange="showFee()">
+            <select id="event" name="event" onchange="showFee(); saveEventPreference();">
                 <option value="marathon" data-fee="500">Community Marathon</option>
                 <option value="yoga" data-fee="200">Outdoor Yoga Session</option>
                 <option value="playdate" data-fee="300">Children's Playdate</option>
@@ -179,6 +180,9 @@
                 <option value="foodstalls" data-fee="250">Street Food Festival</option>
             </select>
             <p id="eventFee">Event Fee: ₹0</p> <!-- Placeholder for dynamic fee -->
+            <p id="selectedEvent"></p>
+            <button onclick="clearPreferences()">Clear Preferences</button>
+
 
             <label for="message">Additional Notes:</label>
             <textarea id="message" name="message" rows="4"></textarea>
@@ -186,7 +190,50 @@
             <p id="Registrationconfirmation" style="color: green; font-weight: bold;"></p>
         </form>
     </section>
+    <script>
+        // Save event preference in localStorage
+        function saveEventPreference() {
+            const selectedEvent = document.getElementById("event").value;
+            localStorage.setItem("preferredEvent", selectedEvent);
+            displayPreference();
+        }
+        // Retrieve & pre-select the stored event on page reload
+        function loadEventPreference() {
+            const savedEvent = localStorage.getItem("preferredEvent");
+            if (savedEvent) {
+                document.getElementById("event").value = savedEvent;
+                displayPreference();
+            }
+        }
 
+        // Show selected preference
+        function displayPreference() {
+            const savedEvent = localStorage.getItem("preferredEvent");
+            document.getElementById("selectedEvent").textContent = savedEvent ? `Your preferred event is: ${savedEvent}` : "";
+        }
+            // Save preference when form is submitted
+    function showConfirmation(event) {
+        event.preventDefault(); // Prevent form from actually submitting
+        const name = document.getElementById("name").value;
+        const selectedEvent = document.getElementById("event").value;
+
+        localStorage.setItem("preferredEvent", selectedEvent); // Ensure preference is stored
+        document.getElementById("Registrationconfirmation").textContent = 
+            `Thank you, ${name}! You have successfully registered for the ${selectedEvent}.`;
+
+        formSubmitted = true;
+    }
+
+        // Clear localStorage and sessionStorage
+        function clearPreferences() {
+            localStorage.removeItem("preferredEvent");
+            sessionStorage.clear();
+            document.getElementById("selectedEvent").textContent = "Preferences cleared!";
+        }
+
+        // Load preference when page loads
+        window.onload = loadEventPreference;
+    </script>
          <script>
         let formSubmitted = false; // Flag to track submission
         // Display message when video is ready
