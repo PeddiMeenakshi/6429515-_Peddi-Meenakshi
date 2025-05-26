@@ -1,9 +1,16 @@
 /* Header & banner styles */
-#welcomeBanner { 
+/* Universal selector: Resets margin/padding for all elements */
+* { margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+/* Header & banner styles */
+#mainHeader { 
     background-color: blue;
     color: white;
     padding: 15px;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
  }
 .highlight {
      color: orange;
@@ -28,23 +35,33 @@
     height: 400px; 
     object-fit: cover; 
 }
+/* Grouping selector: Styles <h3> and <p> together */
+h3, p { 
+    font-family: 'Nunito', sans-serif;
+    color: #333; 
+    line-height: 1.5; 
+}
+
 
 /* Table & image styles */
 table { 
     margin: auto; 
     border-collapse: collapse; 
     text-align: center; 
+    font-family: 'Lato', sans-serif;
 }
 img:active { 
     transform: scale(1.5); 
     transition: 0.3s; 
 }
-.event-img { 
+/* Class selector: Styles event images */
+.eventCard { 
     border: 2px solid #333; 
     width: 350px; 
     height: 230px; 
     object-fit: cover; 
     padding: 5px; 
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Form & input styles */
@@ -55,7 +72,9 @@ form {
     margin: auto; 
     padding: 15px; 
     border: 1px solid #ddd; 
-    background-color: #f9f9f9; }
+    background-color: #f9f9f9;
+    font-family: 'Source Sans Pro', sans-serif;
+ }
 label { 
     font-weight: bold; 
     margin-top: 10px; 
@@ -70,11 +89,13 @@ button {
     color: white; 
     padding: 10px; 
     margin-top: 10px; 
-    cursor: pointer; 
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif; 
 }
 
 /* Footer styles */
 footer { 
     background-color: #827c7c; 
-    padding: 30px; 
+    padding: 30px;
+    font-family: 'Ubuntu', sans-serif; 
 }
