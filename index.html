@@ -15,6 +15,19 @@
         color: orange;
         font-weight: bold;
     }
+    table {
+    margin: auto; /* Centers the table */
+    border-collapse: collapse; /* Ensures clean layout */
+    text-align: center; /* Aligns text within cells */
+    }
+    .event-img {
+    border: 2px solid #333;
+    width: 350px;
+    height:230px ;
+    object-fit: cover;
+    padding: 5px;
+    }
+
     </style>
 </head>
 <body>
@@ -42,6 +55,52 @@
     <section id="events">
         <h2>Upcoming Events</h2>
         <p>Check out our event lineup and register today.</p>
+        <table>
+            <caption>Past Community Events</caption>
+             <tr>
+                 <td>
+                       <figure>
+                            <img src="/static/clean_green.jpg" alt="Community Cleanup" title="Community Cleanup Event" class="event-img">
+                            <figcaption>Volunteers joined hands to make the environment cleaner, recycling waste and planting trees.</figcaption>
+                        </figure>
+                </td>
+                <td>
+                       <figure>
+                            <img src="/static/holi.jpg" alt="Holi Festival" title="Holi" class="event-img">
+                            <figcaption>Families and friends gathered for the vibrant Holi festival, celebrating with colors and music.</figcaption>
+                       </figure>
+                </td>
+                <td>
+                       <figure>
+                            <img src="/static/children_playdate.jpg" alt="playdate" title="Play date" class="event-img">
+                            <figcaption>Kids engaged in fun activities, creative workshops, and interactive games.</figcaption>
+
+                        </figure>
+                </td>
+            </tr>
+            <tr>
+                 <td>
+                       <figure>
+                            <img src="/static/food_stalls.jpg" alt="Food Drive" title="Food Drive for Families" class="event-img">
+                            <figcaption>A bustling street food fair featuring delicious local delicacies from community vendors.</figcaption>
+
+                        </figure>
+                </td>
+                <td>
+                       <figure>
+                            <img src="/static/yoga.jpg" alt="Yoga" title="Outdoor Yoga" class="event-img">
+                            <figcaption>A peaceful morning yoga session promoting wellness and mindfulness in the park.</figcaption>
+                        </figure>
+                </td>
+                <td>
+
+                       <figure>
+                            <img src="/static/marathon_fund.png" alt="Charity Marathon" title="Community Charity Marathon" class="event-img">
+                            <figcaption>Participants ran to support local social causes, raising funds for community development.</figcaption>
+                        </figure>
+                </td>
+            </tr>
+        </table>
     </section>
 
     <section id="contact">
