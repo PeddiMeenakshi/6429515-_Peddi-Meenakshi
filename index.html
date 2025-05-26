@@ -15,6 +15,26 @@
         color: orange;
         font-weight: bold;
     }
+    #bannerContainer {
+        width: 80%; /* Adjust width as needed */
+        max-width: 700px;
+        margin: auto; /* Centers the banner */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .bannerSlider {
+        display: flex;
+        background: #000;
+        transition: transform 0.6s ease-in-out;
+    }
+   .bannerSlider video {
+        width: 100%;
+        height: 400px; /* Ensures uniform size */
+        object-fit: cover; /* Scales content while keeping aspect ratio */
+    }
+
+
     table {
     margin: auto; /* Centers the table */
     border-collapse: collapse; /* Ensures clean layout */
@@ -93,19 +113,61 @@
     <section id="events">
         <h2>Upcoming Events</h2>
         <p>Check out our event lineup and register today.</p>
-        <!-- Registration Form -->
-        <section id="register">
+        <h1>Featured Events & Promo</h1>
+
+    <div id="bannerContainer">
+        <div class="bannerSlider">
+            <video autoplay loop muted>
+                <source src="/static/diwali.mp4" type="video/mp4" >
+                Your browser does not support the video tag.
+            </video>            
+            <video autoplay loop muted>
+                <source src="/static/holi_promo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>            
+            <video autoplay loop muted>
+                <source src="/static/marathon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video autoplay loop muted>
+                <source src="/static/playdate.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        let slides = document.querySelector(".bannerSlider");
+
+        function autoSlide() {
+            slideIndex = (slideIndex + 1) % slides.children.length;
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        setInterval(autoSlide, 5000); // Switch every 5 sec
+    </script>
+
+    <h1>Featured Events & Promo</h1>
+
+    <!-- Video Invite -->
+    <p id="statusMessage"></p>
+    <video id="promoVideo" width="600" controls>
+        <source src="/static/playdate.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Registration Form -->
+    <section id="register">
         <h3>Register for an Event</h3>
-        <form onsubmit="showConfirmation(event)">            
+        <form id="eventForm" onsubmit="showConfirmation(event)">            
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
-
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
             <label for="date">Event Date:</label>
             <input type="date" id="date" name="date" required>
-
 
             <label for="event">Select Event:</label>
             <select id="event" name="event" onchange="showFee()">
@@ -123,24 +185,44 @@
             <button type="submit">Register Now</button>
             <p id="Registrationconfirmation" style="color: green; font-weight: bold;"></p>
         </form>
-       <script>
-            function showFee() {
-                const eventDropdown = document.getElementById("event");
-                const selectedOption = eventDropdown.options[eventDropdown.selectedIndex];
-                const fee = selectedOption.getAttribute("data-fee");
-                document.getElementById("eventFee").textContent = `Event Fee: ₹${fee}`;
-            }
+    </section>
 
-            function showConfirmation(event) {
-                event.preventDefault(); // Prevent actual form submission
-                const name = document.getElementById("name").value;
-                const eventType = document.getElementById("event").value;
-                const confirmationMsg = `Thank you, ${name}! You have successfully registered for the ${eventType}.`;
-                document.getElementById("Registrationconfirmation").textContent = confirmationMsg;
+         <script>
+        let formSubmitted = false; // Flag to track submission
+        // Display message when video is ready
+        document.getElementById('promoVideo').oncanplay = function() {
+            document.getElementById('statusMessage').textContent = 'Video ready to play';
+        };
+
+        // Warn user before leaving with unsaved form data
+        window.onbeforeunload = function(event) {
+            if (!formSubmitted) {  // Only warn if form hasn't been submitted
+            let form = document.getElementById('eventForm');
+            if (form.querySelector('input[type="text"]').value || 
+                form.querySelector('input[type="email"]').value) {
+                return "You have unsaved changes. Are you sure you want to leave?";
             }
-        </script> 
-        </section>
-</section>
+        }
+        };
+        // Dynamically show event fee
+        function showFee() {
+            const eventDropdown = document.getElementById("event");
+            const selectedOption = eventDropdown.options[eventDropdown.selectedIndex];
+            const fee = selectedOption.getAttribute("data-fee");
+            document.getElementById("eventFee").textContent = `Event Fee: ₹${fee}`;
+        }
+
+        // Show registration confirmation
+        function showConfirmation(event) {
+            event.preventDefault(); // Prevent form submission
+            const name = document.getElementById("name").value;
+            const eventType = document.getElementById("event").value;
+            const confirmationMsg = `Thank you, ${name}! You have successfully registered for the ${eventType}.`;
+            document.getElementById("Registrationconfirmation").textContent = confirmationMsg;
+            formSubmitted=true;//mark form as submitted
+        }
+    </script>
+
         <table>
             <caption>Past Community Events</caption>
              <tr>
