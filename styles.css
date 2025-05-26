@@ -1,17 +1,20 @@
 /* Header & banner styles */
 /* Universal selector: Resets margin/padding for all elements */
-* { margin: 0; 
+* { 
+    margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
 }
+
 /* Body styling: Background image with fallback color */
 body { 
     background: #f1eeee;
     color: #34495E;
 }
+
 /* Navigation styling */
 nav { 
-    background: linear-gradient(360deg, #2C3E50, #34495E); /* Blue to black gradient */
+    background: linear-gradient(360deg,#5032fa,#5c6ad5); /* Blue to black gradient */
     padding: 15px;
     text-align: center;
 }
@@ -42,9 +45,10 @@ nav ul li a:hover {
     background-color: #6a570c; /* Bright yellow highlight */
     color: #003366; /* Dark blue text */
 }
+
 /* Header & banner styles */
 #mainHeader { 
-    background:linear-gradient(100deg, #5988d4 0%, #a081cccf 50%, #8687be 100%);
+    background:linear-gradient(180deg,#8c66d8,#675cca);
     color: #ffffff; /* White text ensures high contrast */
     padding: 20px;
     text-align: center;
@@ -52,30 +56,32 @@ nav ul li a:hover {
     font-weight: bold;
     border-bottom: 3px solid #787566; /* Subtle accent */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds subtle depth */
- }
-.highlight {
-     color: rgb(203, 107, 150);
-      font-weight: bold; 
 }
+
+.highlight {
+    color: rgb(203, 107, 150);
+    font-weight: bold; 
+}
+
 /* Events section styling */
 #events { 
     padding: 50px;
     color: #1b1140; /* White text for contrast */
     text-align: center;
 }
+
 p { 
     font-size: 18px; 
-    color: #ddd; 
+    color: #69b6f2; 
     margin-bottom: 20px;
 }
 
 /* Background wrapper */
 #bannerBackground {
-        background:  linear-gradient(100deg, #5988d4 0%, #a081cccf 50%, #8687be 100%);
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background:linear-gradient(100deg,#b3a2e1,#e3e3ab);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     padding: 40px 0; /* Adds space around the banner */
 }
-
 
 /* Banner container styles */
 #bannerContainer { 
@@ -85,29 +91,39 @@ p {
     overflow: hidden; 
     position: relative; 
 }
+
 .bannerSlider { 
     display: flex;  
     transition: transform 0.6s ease-in-out;
- }
+}
+
 .bannerSlider video { 
     width: 100%; 
     height: 400px; 
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
 
-}
 /* Table & image styles */
-table { 
-    margin: auto; 
-    border-collapse: collapse; 
-    text-align: center; 
-    font-family: 'Lato', sans-serif;
+table {
+    margin: 40px auto;
+    border-collapse: separate; /* Use separate to allow cell spacing */
+    border-spacing: 15px; /* Space between cells */
+    width: 90%;
+    max-width: 1000px;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Lighter shadow for a gallery feel */
+    border-radius: 12px;
+    background-color: #F8F8F8; /* Light background for the table area */
+    padding: 15px; /* Padding inside the table container */
 }
+
 img:active { 
     transform: scale(1.5); 
     transition: 0.3s; 
 }
+
 /* Class selector: Styles event images */
 .eventCard { 
     border: 2px solid #333; 
@@ -129,16 +145,20 @@ form {
     border: 1px solid #ddd; 
     background-color: #f9f9f9;
     font-family: 'Source Sans Pro', sans-serif;
- }
+}
+
 label { 
     font-weight: bold; 
     margin-top: 10px; 
 }
+
 input, select, textarea { 
     padding: 8px; 
     margin-top: 5px; 
     border: 1px solid #ccc; 
-    width: 90%; }
+    width: 90%; 
+}
+
 button { 
     background-color: #0073e6; 
     color: white; 
@@ -147,8 +167,32 @@ button {
     cursor: pointer;
     font-family: 'Raleway', sans-serif; 
 }
+
 button:hover { 
     background-color: rgba(0, 115, 230, 0.8); 
+}
+/* Contact Us Section */
+#contact {
+    color: #060606; /* White text for contrast */
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px; /* Soft edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* News column */
+.news-columns {
+    column-count: 2;
+    column-gap: 40px;
+    column-rule: 1px solid #BDC3C7; /* Subtle Gray rule between columns */
+    padding-top: 20px; /* Space from heading */
+}
+
+.news-columns p {
+    margin-bottom: 1.2em; /* More space between paragraphs for readability in columns */
+    text-align: justify;
+    font-size: 0.98em; /* Slightly larger font for news paragraphs */
+    color: #34495E; /* Soft Black for news body text */
 }
 
 /* Footer styles */
@@ -156,4 +200,100 @@ footer {
     background-color: #827c7c; 
     padding: 30px;
     font-family: 'Ubuntu', sans-serif; 
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 1024px) {
+    nav ul {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #bannerContainer {
+        width: 90%;
+    }
+
+    .eventCard, .bannerSlider video {
+        width: 80%;
+        height: auto;
+    }
+
+    form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .eventCard, .bannerSlider video {
+        width: 100%;
+    }
+
+    .news-columns {
+        column-count: 1;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    h1, h2, h3 {
+        font-size: 1.2rem;
+    }
+
+    #bannerContainer {
+        width: 95%;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        font-size: 80%;
+    }
+
+    nav ul {
+        padding: 10px;
+    }
+
+    .eventCard {
+        width: 90%;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #contact {
+        padding: 30px 10px;
+    }
+
+    #contact h2 {
+        font-size: 22px;
+    }
+
+    #contact p {
+        font-size: 16px;
+    }
 }
