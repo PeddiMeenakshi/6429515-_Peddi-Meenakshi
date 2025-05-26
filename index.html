@@ -148,7 +148,42 @@
 
         setInterval(autoSlide, 5000); // Switch every 5 sec
     </script>
+    <h3>Locate the Nearest Event</h3>
+    <button onclick="getLocation()">Find Nearby Events</button>
+    <p id="locationOutput">Lets find Events near your location.</p>
+<script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    showPosition, handleError, { enableHighAccuracy: true, timeout: 10000 }
+                );
+            } else {
+                document.getElementById("locationOutput").textContent = "Geolocation is not supported by your browser.";
+            }
+        }
 
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            document.getElementById("locationOutput").textContent = `Your coordinates: Latitude ${latitude}, Longitude ${longitude}`;
+        }
+
+        function handleError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById("locationOutput").textContent = "Location access denied.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById("locationOutput").textContent = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById("locationOutput").textContent = "Request timed out.";
+                    break;
+                default:
+                    document.getElementById("locationOutput").textContent = "An unknown error occurred.";
+            }
+        }
+    </script>
     <h1>Featured Events & Promo</h1>
 
     <!-- Video Invite -->
