@@ -6,12 +6,12 @@
 }
 /* Body styling: Background image with fallback color */
 body { 
-    background: #f1eeee url('city-council-bg.jpg') no-repeat center/cover;
-     /* Fallback color + background image */
+    background: #f1eeee;
+    color: #34495E;
 }
 /* Navigation styling */
 nav { 
-    background: linear-gradient(360deg, #000000, #05111b); /* Blue to black gradient */
+    background: linear-gradient(360deg, #2C3E50, #34495E); /* Blue to black gradient */
     padding: 15px;
     text-align: center;
 }
@@ -44,7 +44,7 @@ nav ul li a:hover {
 }
 /* Header & banner styles */
 #mainHeader { 
-    background: linear-gradient(180deg, #0b3a68, #100f0f); /* Deep navy blue for a professional look */
+    background:linear-gradient(100deg, #5988d4 0%, #a081cccf 50%, #8687be 100%);
     color: #ffffff; /* White text ensures high contrast */
     padding: 20px;
     text-align: center;
@@ -57,6 +57,25 @@ nav ul li a:hover {
      color: rgb(203, 107, 150);
       font-weight: bold; 
 }
+/* Events section styling */
+#events { 
+    padding: 50px;
+    color: #1b1140; /* White text for contrast */
+    text-align: center;
+}
+p { 
+    font-size: 18px; 
+    color: #ddd; 
+    margin-bottom: 20px;
+}
+
+/* Background wrapper */
+#bannerBackground {
+        background:  linear-gradient(100deg, #5988d4 0%, #a081cccf 50%, #8687be 100%);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    padding: 40px 0; /* Adds space around the banner */
+}
+
 
 /* Banner container styles */
 #bannerContainer { 
@@ -73,7 +92,10 @@ nav ul li a:hover {
 .bannerSlider video { 
     width: 100%; 
     height: 400px; 
-    object-fit: cover; 
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
 }
 /* Table & image styles */
 table { 
