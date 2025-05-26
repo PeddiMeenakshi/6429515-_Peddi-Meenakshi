@@ -27,7 +27,35 @@
     object-fit: cover;
     padding: 5px;
     }
+    form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    }
 
+    label {
+    font-weight: bold;
+    margin-top: 10px;
+    }
+
+    input, select, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    }
+
+    button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    }
     </style>
 </head>
 <body>
@@ -55,6 +83,32 @@
     <section id="events">
         <h2>Upcoming Events</h2>
         <p>Check out our event lineup and register today.</p>
+        <!-- Registration Form -->
+        <section id="register">
+        <h3>Register for an Event</h3>
+        <form onsubmit="alert('Registration submitted successfully!'); return false;">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="event">Select Event:</label>
+            <select id="event" name="event" required>
+                <option value="marathon">Community Marathon</option>
+                <option value="yoga">Outdoor Yoga Session</option>
+                <option value="playdate">Children's Playdate</option>
+                <option value="holi">Holi Festival</option>
+                <option value="cleanup">Neighborhood Cleanup</option>
+                <option value="foodstalls">Street Food Festival</option>
+            </select>
+
+            <label for="message">Additional Notes:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+            <button type="submit">Register Now</button>
+        </form>
+        </section>
+</section>
         <table>
             <caption>Past Community Events</caption>
              <tr>
