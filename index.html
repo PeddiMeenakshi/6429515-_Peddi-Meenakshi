@@ -151,7 +151,7 @@
     <h3>Locate the Nearest Event</h3>
     <button onclick="getLocation()">Find Nearby Events</button>
     <p id="locationOutput">Lets find Events near your location.</p>
-<script>
+    <script>
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
@@ -247,17 +247,15 @@
             document.getElementById("selectedEvent").textContent = savedEvent ? `Your preferred event is: ${savedEvent}` : "";
         }
             // Save preference when form is submitted
-    function showConfirmation(event) {
-        event.preventDefault(); // Prevent form from actually submitting
-        const name = document.getElementById("name").value;
-        const selectedEvent = document.getElementById("event").value;
-
-        localStorage.setItem("preferredEvent", selectedEvent); // Ensure preference is stored
-        document.getElementById("Registrationconfirmation").textContent = 
+        function showConfirmation(event) {
+            event.preventDefault(); // Prevent form from actually submitting
+            const name = document.getElementById("name").value;
+            const selectedEvent = document.getElementById("event").value;
+            localStorage.setItem("preferredEvent", selectedEvent); // Ensure preference is stored
+            document.getElementById("Registrationconfirmation").textContent = 
             `Thank you, ${name}! You have successfully registered for the ${selectedEvent}.`;
-
-        formSubmitted = true;
-    }
+            formSubmitted = true;
+        }
 
         // Clear localStorage and sessionStorage
         function clearPreferences() {
@@ -268,8 +266,6 @@
 
         // Load preference when page loads
         window.onload = loadEventPreference;
-    </script>
-         <script>
         let formSubmitted = false; // Flag to track submission
         // Display message when video is ready
         document.getElementById('promoVideo').oncanplay = function() {
