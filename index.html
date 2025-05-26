@@ -20,6 +20,11 @@
     border-collapse: collapse; /* Ensures clean layout */
     text-align: center; /* Aligns text within cells */
     }
+    img:active {
+        transform: scale(1.5);
+        transition: 0.3s;
+    }
+
     .event-img {
     border: 2px solid #333;
     width: 350px;
@@ -30,7 +35,7 @@
     form {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
     margin: auto;
     padding: 15px;
     border: 1px solid #ddd;
@@ -46,7 +51,7 @@
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    width: 100%;
+    width: 90%;
     }
 
     button {
@@ -56,7 +61,12 @@
     margin-top: 10px;
     cursor: pointer;
     }
+    footer{
+        background-color: #827c7c;
+        padding: 30px;
+    }
     </style>
+
 </head>
 <body>
 
@@ -86,27 +96,49 @@
         <!-- Registration Form -->
         <section id="register">
         <h3>Register for an Event</h3>
-        <form onsubmit="alert('Registration submitted successfully!'); return false;">
+        <form onsubmit="showConfirmation(event)">            
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
+            <label for="date">Event Date:</label>
+            <input type="date" id="date" name="date" required>
+
+
             <label for="event">Select Event:</label>
-            <select id="event" name="event" required>
-                <option value="marathon">Community Marathon</option>
-                <option value="yoga">Outdoor Yoga Session</option>
-                <option value="playdate">Children's Playdate</option>
-                <option value="holi">Holi Festival</option>
-                <option value="cleanup">Neighborhood Cleanup</option>
-                <option value="foodstalls">Street Food Festival</option>
+            <select id="event" name="event" onchange="showFee()">
+                <option value="marathon" data-fee="500">Community Marathon</option>
+                <option value="yoga" data-fee="200">Outdoor Yoga Session</option>
+                <option value="playdate" data-fee="300">Children's Playdate</option>
+                <option value="holi" data-fee="100">Holi Festival</option>
+                <option value="cleanup" data-fee="0">Neighborhood Cleanup (Free)</option>
+                <option value="foodstalls" data-fee="250">Street Food Festival</option>
             </select>
+            <p id="eventFee">Event Fee: ₹0</p> <!-- Placeholder for dynamic fee -->
 
             <label for="message">Additional Notes:</label>
             <textarea id="message" name="message" rows="4"></textarea>
             <button type="submit">Register Now</button>
+            <p id="Registrationconfirmation" style="color: green; font-weight: bold;"></p>
         </form>
+       <script>
+            function showFee() {
+                const eventDropdown = document.getElementById("event");
+                const selectedOption = eventDropdown.options[eventDropdown.selectedIndex];
+                const fee = selectedOption.getAttribute("data-fee");
+                document.getElementById("eventFee").textContent = `Event Fee: ₹${fee}`;
+            }
+
+            function showConfirmation(event) {
+                event.preventDefault(); // Prevent actual form submission
+                const name = document.getElementById("name").value;
+                const eventType = document.getElementById("event").value;
+                const confirmationMsg = `Thank you, ${name}! You have successfully registered for the ${eventType}.`;
+                document.getElementById("Registrationconfirmation").textContent = confirmationMsg;
+            }
+        </script> 
         </section>
 </section>
         <table>
@@ -114,19 +146,19 @@
              <tr>
                  <td>
                        <figure>
-                            <img src="/static/clean_green.jpg" alt="Community Cleanup" title="Community Cleanup Event" class="event-img">
+                            <img src="/static/clean_green.jpg" alt="Community Cleanup" title="Community Cleanup Event" class="event-img" ondblclick="enlargeImage()">
                             <figcaption>Volunteers joined hands to make the environment cleaner, recycling waste and planting trees.</figcaption>
                         </figure>
                 </td>
                 <td>
                        <figure>
-                            <img src="/static/holi.jpg" alt="Holi Festival" title="Holi" class="event-img">
+                            <img src="/static/holi.jpg" alt="Holi Festival" title="Holi" class="event-img" ondblclick="enlargeImage()">
                             <figcaption>Families and friends gathered for the vibrant Holi festival, celebrating with colors and music.</figcaption>
                        </figure>
                 </td>
                 <td>
                        <figure>
-                            <img src="/static/children_playdate.jpg" alt="playdate" title="Play date" class="event-img">
+                            <img src="/static/children_playdate.jpg" alt="playdate" title="Play date" class="event-img" ondblclick="enlargeImage()">
                             <figcaption>Kids engaged in fun activities, creative workshops, and interactive games.</figcaption>
 
                         </figure>
@@ -135,31 +167,78 @@
             <tr>
                  <td>
                        <figure>
-                            <img src="/static/food_stalls.jpg" alt="Food Drive" title="Food Drive for Families" class="event-img">
+                            <img src="/static/food_stalls.jpg" alt="Food Drive" title="Food Drive for Families" class="event-img" ondblclick="enlargeImage()">
                             <figcaption>A bustling street food fair featuring delicious local delicacies from community vendors.</figcaption>
 
                         </figure>
                 </td>
                 <td>
                        <figure>
-                            <img src="/static/yoga.jpg" alt="Yoga" title="Outdoor Yoga" class="event-img">
+                            <img src="/static/yoga.jpg" alt="Yoga" title="Outdoor Yoga" class="event-img" ondblclick="enlargeImage()">
                             <figcaption>A peaceful morning yoga session promoting wellness and mindfulness in the park.</figcaption>
                         </figure>
                 </td>
                 <td>
 
                        <figure>
-                            <img src="/static/marathon_fund.png" alt="Charity Marathon" title="Community Charity Marathon" class="event-img">
+                            <img src="/static/marathon_fund.png" alt="Charity Marathon" title="Community Charity Marathon" class="event-img" ondblclick="enlargeImage()">
                             <figcaption>Participants ran to support local social causes, raising funds for community development.</figcaption>
                         </figure>
                 </td>
             </tr>
         </table>
+        <script>
+            function enlargeImage(event) {
+                event.target.style.transform = "scale(1.5)";
+                event.target.style.transition = "transform 0.3s ease-in-out";
+            }
+        </script>
     </section>
 
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Have questions? Reach out to us anytime.</p>
+        <form onsubmit="handleFeedback(event)">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" onblur="validatePhone()" required>
+            <p id="phoneError" style="color: red;"></p>
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" rows="4" maxlength="200" onkeyup="countCharacters()"></textarea>
+            <p id="charCount">Characters: 0</p>
+            <button type="submit">Submit Feedback</button>
+            <p id="feedbackMessage" style="color: green; font-weight: bold;"></p> <!-- Placeholder for message -->
+        </form>
+            <script>
+                function validatePhone() {
+                    const phoneInput = document.getElementById("phone").value;
+                    const errorMsg = document.getElementById("phoneError");
+                    if (!/^\d{10}$/.test(phoneInput)) {
+                        errorMsg.textContent = "Invalid phone number! Must be 10 digits.";
+                    } else {
+                    errorMsg.textContent = "";
+                    }
+                }
+
+                function countCharacters() {
+                    const textArea = document.getElementById("feedback").value;
+                    document.getElementById("charCount").textContent = `Characters: ${textArea.length}/200`;
+                }
+               
+                function handleFeedback(event) {
+                    event.preventDefault(); // Prevent page reload
+                    const feedbackText = document.getElementById("feedback").value;
+                    const messageElement = document.getElementById("feedbackMessage");
+
+                    if (feedbackText.trim().length > 0) {
+                        messageElement.textContent = "Thank you for your feedback!";
+                    } else {
+                        messageElement.textContent = "Please enter your feedback before submitting.";
+                        messageElement.style.color = "red";
+                    }
+                }
+
+            </script>
+        </form>
         <a href="help.html" target="_blank">Need Help? Click here!</a>
 
     </section>
