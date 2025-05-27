@@ -72,6 +72,9 @@
         <h3>Locate the Nearest Event</h3>
         <button onclick="getLocation()">Find Nearby Events</button>
         <p id="locationOutput">Lets find Events near your location.</p>
+
+        <div id="eventContainer"></div> <!-- This is where events will be displayed -->
+
         <h2>See Our Community in Action!</h2>
         <p>Catch a glimpse of the excitement from past events.</p>
 
@@ -85,7 +88,7 @@
         <!-- Registration Form -->
         <section id="register">
             <h3>Register for an Event</h3>
-            <form id="eventForm" onsubmit="showConfirmation(event)">
+            <form id="eventForm">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
@@ -96,12 +99,6 @@
 
                 <label for="event">Select Event:</label>
                 <select id="event" name="event" onchange="showFee(); saveEventPreference();">
-                    <option value="marathon" data-fee="500">Community Marathon</option>
-                    <option value="yoga" data-fee="200">Outdoor Yoga Session</option>
-                    <option value="playdate" data-fee="300">Children's Playdate</option>
-                    <option value="holi" data-fee="100">Holi Festival</option>
-                    <option value="cleanup" data-fee="0">Neighborhood Cleanup (Free)</option>
-                    <option value="foodstalls" data-fee="250">Street Food Festival</option>
                 </select>
                 <p id="eventFee">Event Fee: ₹0</p> <!-- Placeholder for dynamic fee -->
                 <p id="selectedEvent"></p>
@@ -272,7 +269,8 @@
     <footer>
         <p>&copy; 2025 Local City Council</p>
     </footer>
-    <script src="main.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="main.js"></script>
 </body>
 
 </html>

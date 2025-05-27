@@ -14,7 +14,7 @@ body {
 
 /* Navigation styling */
 nav {
-    background: linear-gradient(360deg, #5032fa, #5c6ad5);
+    background: linear-gradient(180deg, #b3a2e1, #e3e3ab);
     /* Blue to black gradient */
     padding: 15px;
     text-align: center;
@@ -114,7 +114,46 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+.event-card {
+    padding: 1.5rem; /* p-6 */
+    border: 1px solid #e2e8f0; /* border-gray-200 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    background:linear-gradient(180deg, #b3a2e1, #e3e3ab);
+    color: #ffffff; /* text-gray-800 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+.event-card h3, .event-card p {
+    color: white !important;
+}
 
+.event-card:hover {
+    transform: scale(1.05);
+}
+
+/* For the grid container */
+#eventContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Simplified for responsiveness */
+    gap: 1.5rem; /* gap-6 */
+    padding: 1rem; /* p-4 */
+}
+
+/* Responsive adjustments for the grid */
+@media (min-width: 768px) {
+    #eventContainer {
+        grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+    }
+}
+@media (min-width: 1024px) {
+    #eventContainer {
+        grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+    }
+}
 /* Table & image styles */
 table {
     margin: 40px auto;
