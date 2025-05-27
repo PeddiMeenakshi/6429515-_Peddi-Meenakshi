@@ -1,182 +1,203 @@
 /* Header & banner styles */
 /* Universal selector: Resets margin/padding for all elements */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Body styling: Background image with fallback color */
-body { 
+body {
     background: #f1eeee;
     color: #34495E;
 }
 
 /* Navigation styling */
-nav { 
-    background: linear-gradient(360deg,#5032fa,#5c6ad5); /* Blue to black gradient */
+nav {
+    background: linear-gradient(360deg, #5032fa, #5c6ad5);
+    /* Blue to black gradient */
     padding: 15px;
     text-align: center;
 }
 
 /* Navigation list */
-nav ul { 
-    list-style: none; 
-    display: flex; 
+nav ul {
+    list-style: none;
+    display: flex;
     justify-content: flex-end;
-    gap: 30px; /* Adds spacing */
+    gap: 30px;
+    /* Adds spacing */
     padding: 0;
     margin: 0;
 }
 
 /* Navigation links */
-nav ul li a { 
+nav ul li a {
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff; /* White text for contrast */
+    color: #ffffff;
+    /* White text for contrast */
     padding: 10px 15px;
     border-radius: 6px;
     transition: 0.3s;
 }
 
 /* Hover effect */
-nav ul li a:hover { 
-    background-color: #6a570c; /* Bright yellow highlight */
-    color: #003366; /* Dark blue text */
+nav ul li a:hover {
+    background-color: #6a570c;
+    /* Bright yellow highlight */
+    color: #003366;
+    /* Dark blue text */
 }
 
 /* Header & banner styles */
-#mainHeader { 
-    background:linear-gradient(180deg,#8c66d8,#675cca);
-    color: #ffffff; /* White text ensures high contrast */
+#mainHeader {
+    background: linear-gradient(180deg, #8c66d8, #675cca);
+    color: #ffffff;
+    /* White text ensures high contrast */
     padding: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    border-bottom: 3px solid #787566; /* Subtle accent */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds subtle depth */
+    border-bottom: 3px solid #787566;
+    /* Subtle accent */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Adds subtle depth */
 }
 
 .highlight {
     color: rgb(203, 107, 150);
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 /* Events section styling */
-#events { 
+#events {
     padding: 50px;
-    color: #1b1140; /* White text for contrast */
+    color: #1b1140;
+    /* White text for contrast */
     text-align: center;
 }
 
-p { 
-    font-size: 18px; 
-    color: #69b6f2; 
+p {
+    font-size: 18px;
+    color: #69b6f2;
     margin-bottom: 20px;
 }
 
 /* Background wrapper */
 #bannerBackground {
-    background:linear-gradient(100deg,#b3a2e1,#e3e3ab);
+    background: linear-gradient(100deg, #b3a2e1, #e3e3ab);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    padding: 40px 0; /* Adds space around the banner */
+    padding: 40px 0;
+    /* Adds space around the banner */
 }
 
 /* Banner container styles */
-#bannerContainer { 
-    width: 80%; 
-    max-width: 700px; 
-    margin: auto; 
-    overflow: hidden; 
-    position: relative; 
+#bannerContainer {
+    width: 80%;
+    max-width: 700px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
 }
 
-.bannerSlider { 
-    display: flex;  
+.bannerSlider {
+    display: flex;
     transition: transform 0.6s ease-in-out;
 }
 
-.bannerSlider video { 
-    width: 100%; 
-    height: 400px; 
+.bannerSlider video {
+    width: 100%;
+    height: 400px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Table & image styles */
 table {
     margin: 40px auto;
-    border-collapse: separate; /* Use separate to allow cell spacing */
-    border-spacing: 15px; /* Space between cells */
+    border-collapse: separate;
+    /* Use separate to allow cell spacing */
+    border-spacing: 15px;
+    /* Space between cells */
     width: 90%;
     max-width: 1000px;
     font-family: 'Open Sans', sans-serif;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Lighter shadow for a gallery feel */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    /* Lighter shadow for a gallery feel */
     border-radius: 12px;
-    background-color: #F8F8F8; /* Light background for the table area */
-    padding: 15px; /* Padding inside the table container */
+    background-color: #F8F8F8;
+    /* Light background for the table area */
+    padding: 15px;
+    /* Padding inside the table container */
 }
 
-img:active { 
-    transform: scale(1.5); 
-    transition: 0.3s; 
+img:active {
+    transform: scale(1.5);
+    transition: 0.3s;
 }
 
 /* Class selector: Styles event images */
-.eventCard { 
-    border: 2px solid #333; 
-    width: 350px; 
-    height: 230px; 
-    object-fit: cover; 
-    padding: 5px; 
-    background-color: rgba(255, 255, 255, 0.7); /* Soft white overlay */
+.eventCard {
+    border: 2px solid #333;
+    width: 350px;
+    height: 230px;
+    object-fit: cover;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Soft white overlay */
     font-family: 'Roboto', sans-serif;
 }
 
 /* Form & input styles */
-form { 
-    display: flex; 
-    flex-direction: column; 
-    width: 400px; 
-    margin: auto; 
-    padding: 15px; 
-    border: 1px solid #ddd; 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #ddd;
     background-color: #f9f9f9;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-label { 
-    font-weight: bold; 
-    margin-top: 10px; 
+label {
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-input, select, textarea { 
-    padding: 8px; 
-    margin-top: 5px; 
-    border: 1px solid #ccc; 
-    width: 90%; 
+input,
+select,
+textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    width: 90%;
 }
 
-button { 
-    background-color: #0073e6; 
-    color: white; 
-    padding: 10px; 
-    margin-top: 10px; 
+button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
     cursor: pointer;
-    font-family: 'Raleway', sans-serif; 
+    font-family: 'Raleway', sans-serif;
 }
 
-button:hover { 
-    background-color: rgba(0, 115, 230, 0.8); 
+button:hover {
+    background-color: rgba(0, 115, 230, 0.8);
 }
+
 /* Contact Us Section */
 #contact {
-    color: #060606; /* White text for contrast */
+    color: #060606;
+    /* White text for contrast */
     padding: 50px 20px;
     text-align: center;
-    border-radius: 10px; /* Soft edges */
+    border-radius: 10px;
+    /* Soft edges */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -184,22 +205,27 @@ button:hover {
 .news-columns {
     column-count: 2;
     column-gap: 40px;
-    column-rule: 1px solid #BDC3C7; /* Subtle Gray rule between columns */
-    padding-top: 20px; /* Space from heading */
+    column-rule: 1px solid #BDC3C7;
+    /* Subtle Gray rule between columns */
+    padding-top: 20px;
+    /* Space from heading */
 }
 
 .news-columns p {
-    margin-bottom: 1.2em; /* More space between paragraphs for readability in columns */
+    margin-bottom: 1.2em;
+    /* More space between paragraphs for readability in columns */
     text-align: justify;
-    font-size: 0.98em; /* Slightly larger font for news paragraphs */
-    color: #34495E; /* Soft Black for news body text */
+    font-size: 0.98em;
+    /* Slightly larger font for news paragraphs */
+    color: #34495E;
+    /* Soft Black for news body text */
 }
 
 /* Footer styles */
-footer { 
-    background-color: #827c7c; 
+footer {
+    background-color: #827c7c;
     padding: 30px;
-    font-family: 'Ubuntu', sans-serif; 
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /* Responsive Styling */
@@ -213,7 +239,8 @@ footer {
         width: 90%;
     }
 
-    .eventCard, .bannerSlider video {
+    .eventCard,
+    .bannerSlider video {
         width: 80%;
         height: auto;
     }
@@ -229,7 +256,8 @@ footer {
         align-items: center;
     }
 
-    .eventCard, .bannerSlider video {
+    .eventCard,
+    .bannerSlider video {
         width: 100%;
     }
 
@@ -248,7 +276,10 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-    h1, h2, h3 {
+
+    h1,
+    h2,
+    h3 {
         font-size: 1.2rem;
     }
 
